@@ -45,7 +45,6 @@ class aoc3{
     static int solution2()throws Exception{
         File file = new File("D:\\dev\\adventofcode\\2022\\03\\input.txt");
         Scanner sc = new Scanner(file);
-        Set<Character> commonChars = new LinkedHashSet<>();
         int sum = 0;
         while(sc.hasNextLine()){    
             String lines = "";
