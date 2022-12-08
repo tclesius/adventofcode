@@ -62,11 +62,10 @@ class aoc5{
             }
             line.close();
             
-            for (int i = 0; i < amount; i++) {
-                String element = stacks.get(from-1).get(0);
-                stacks.get(from-1).remove(0);
-                stacks.get(to-1).add(0, element);                
-            }
+            List<String> copy = stacks.get(from-1).subList(0, amount);
+            Collections.reverse(copy);
+            stacks.get(to-1).addAll(0, copy);
+            stacks.get(from-1).subList(0, amount).clear();
         }
 
         for (int i = 0; i < stacks.size(); i++) {
@@ -103,8 +102,9 @@ class aoc5{
                 }
             }
             line.close();
-
-            stacks.get(to-1).addAll(0,stacks.get(from-1).subList(0, amount));
+            
+            List<String> copy = stacks.get(from-1).subList(0, amount);
+            stacks.get(to-1).addAll(0, copy);
             stacks.get(from-1).subList(0, amount).clear();
         }
         for (int i = 0; i < stacks.size(); i++) {
